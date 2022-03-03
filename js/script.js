@@ -7,7 +7,7 @@ let bombs;
 
 function generateBombs(){
     bombs = [];
-    while(bombs.length < 16){
+    while(bombs.length <= 16){
         let randN = Math.floor(Math.random() * cellNumber[difficultyElem.value] + 1);
         if(!bombs.includes(randN)) bombs.push(randN);
     }
