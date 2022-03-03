@@ -108,10 +108,11 @@ align-items: center;
 
 .clicked{
     background-color: rgb(109,150,231);
+    color: white;
 }
 
 .bomb{
-    background-image: url("../img/bomb.png") !important;
-    background-size: contain;
     background-color: red;
+    background-image: url("../img/bomb.png");
+    background-size: contain;
 }
