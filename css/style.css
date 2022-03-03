@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(158,251,215);
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    background-color: #fff;
+    height: 9vh;
+    min-height: 40px;
+}
+
+footer{
+    background-color: #fff;
+    height: 7vh;
+}
+
+main{
+    position: relative;
+    height: 84vh;
+}
+
+.header_container{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.footer_container{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header_container div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.header_container button{
+    padding: 0 10px;
+}
+
+.header_container img{
+    width: 40px;
+}
+
+.field{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-wrap: wrap; 
+    height: 30vw;
+    width: 30vw;
+    min-width: 500px;
+    min-height: 500px;
+}
+
+.field-borders{
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.field .text{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.cell{
+border-left: 1px solid black;
+border-top: 1px solid black;
+display: flex;
+justify-content: center;
+align-items: center; 
+}
+
+.field[data-diff="0"] .cell{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.field[data-diff="1"] .cell{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+} 
+
+.field[data-diff="2"] .cell{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.clicked{
+    background-color: rgb(109,150,231);
+}
+
+.bomb{
+    background-image: url("../img/bomb.png") !important;
+    background-size: contain;
+    background-color: red;
+}
