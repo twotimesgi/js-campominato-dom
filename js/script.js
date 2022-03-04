@@ -22,6 +22,15 @@ function generateGrid(n){
     cells = document.getElementsByClassName("cell");
 }
 
+function showBombs(){
+    for (let i = 0; i < cells.length; i++) {
+        if(isBomb(cells[i].dataset.x,cells[i].dataset.y)){
+            cells[i].classList.add("bomb");
+        }
+        
+    }
+}
+
 function generateBombs(){
     bombs = [];
     while(bombs.length < 16){
@@ -37,6 +46,7 @@ function checkAround(){
         if(isBomb(this.dataset.x, this.dataset.y)){
             this.classList.add("bomb");
             gameDisable();
+            showBombs()
             popup.innerHTML = "Mi dispiace, Hai perso. </br> Punteggio: " + userScore;
             popup.style.display = "block"; 
         }else{
