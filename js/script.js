@@ -7,7 +7,7 @@ let bombs;
 let bombsAround;
 let cells;
 let popup = document.getElementById("popup"); 
-
+let userScore;
 function generateGrid(n){
     for(let y = 0; y <= Math.sqrt(cellNumber[difficultyElem.value] - 1); y++){
         for (let x = 0; x <= Math.sqrt(cellNumber[difficultyElem.value] - 1); x++){
@@ -24,7 +24,7 @@ function generateGrid(n){
 
 function generateBombs(){
     bombs = [];
-    while(bombs.length < 0){
+    while(bombs.length < 16){
         let randX = Math.floor(Math.random() * Math.sqrt(cellNumber[difficultyElem.value]));
         let randY =  Math.floor(Math.random() * Math.sqrt(cellNumber[difficultyElem.value]));
         if(!isBomb(randX,randY)) bombs.push([randX, randY]);
@@ -37,10 +37,11 @@ function checkAround(){
         if(isBomb(this.dataset.x, this.dataset.y)){
             this.classList.add("bomb");
             gameDisable();
-            popup.innerHTML = "Mi dispiace, Hai perso.";
-            popup.style.display = "block";
+            popup.innerHTML = "Mi dispiace, Hai perso. </br> Punteggio: " + userScore;
+            popup.style.display = "block"; 
         }else{
             this.classList.add("clicked");
+            userScore += 1;
             bombsAround = 0;
             for(let y = parseInt(this.dataset.y) - 1; y <= parseInt(this.dataset.y) + 1; y++ ){
                 for(let x = parseInt(this.dataset.x) - 1; x <= parseInt(this.dataset.x) + 1; x++){
@@ -83,6 +84,7 @@ function gameDisable(){
 }
 
 playBtn.addEventListener("click",function(){
+    userScore = 0;
     field.innerHTML = "";
     popup.style.display = "none";
     field.classList.add("field-borders");
