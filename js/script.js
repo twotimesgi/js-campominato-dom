@@ -2,7 +2,7 @@ let difficultyElem = document.getElementById("difficulty");
 let playBtn = document.getElementById("playBtn");
 let text = document.querySelector(".text");
 let field = document.querySelector(".field");
-let cellNumber = [49,81,100];
+let cellNumber = [100,81,49];
 let bombs;
 let bombsAround;
 let cells;

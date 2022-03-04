@@ -92,8 +92,8 @@ align-items: center;
 }
 
 .field[data-diff="0"] .cell{
-    width: calc(100% / 7);
-    height: calc(100% / 7);
+    width: calc(100% / 10);
+    height: calc(100% / 10);
 }
 
 .field[data-diff="1"] .cell{
@@ -102,8 +102,8 @@ align-items: center;
 } 
 
 .field[data-diff="2"] .cell{
-    width: calc(100% / 10);
-    height: calc(100% / 10);
+    width: calc(100% / 7);
+    height: calc(100% / 7);
 }
 
 .clicked{
@@ -126,5 +126,5 @@ align-items: center;
     display: none;
     transform: translate(-50%,-50%);
     text-align: center;
-    opacity: 0.9;
+    border: 2px solid black;
 }
