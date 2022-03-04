@@ -111,13 +111,17 @@ function gameDisable(){
 
 //Main
 playBtn.addEventListener("click",function(){
+    // Resetto punteggio, campo e il Popup
     userScore = 0;
     field.innerHTML = "";
     popup.style.display = "none";
+    // Aggiungo i bordi al campo
     field.classList.add("field-borders");
+    // Nascondo il messaggio iniziale
     text.style.display = "none";
+    // Aggiungo al campo data-diff
     field.dataset.diff = difficultyElem.value;
-
+    //Genero la griglia e le bombe
     generateGrid(cellNumber[difficultyElem.value]);
     generateBombs();
 });
