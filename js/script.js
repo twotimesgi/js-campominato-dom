@@ -12,8 +12,8 @@ let userScore;
 // Genero la griglia, assegno una x e una y ad ogni casella tramite gli 
 // attr data-x e data-y, le salvo all'interno di cells.
 function generateGrid(n){
-    for(let y = 0; y <= Math.sqrt(cellNumber[difficultyElem.value] - 1); y++){
-        for (let x = 0; x <= Math.sqrt(cellNumber[difficultyElem.value] - 1); x++){
+    for(let y = 0; y < Math.sqrt(cellNumber[difficultyElem.value]); y++){
+        for (let x = 0; x < Math.sqrt(cellNumber[difficultyElem.value]); x++){
             let cell = document.createElement("div");
             cell.classList.add("cell");
             cell.addEventListener("click", checkAround);
@@ -119,9 +119,9 @@ playBtn.addEventListener("click",function(){
     field.classList.add("field-borders");
     // Nascondo il messaggio iniziale
     text.style.display = "none";
-    // Aggiungo al campo data-diff
+    // Aggiungo al campo (.field) l'attr data-diff
     field.dataset.diff = difficultyElem.value;
-    //Genero la griglia e le bombe
+    // Genero la griglia e le bombe
     generateGrid(cellNumber[difficultyElem.value]);
     generateBombs();
 });
