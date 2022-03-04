@@ -116,3 +116,13 @@ align-items: center;
     background-image: url("../img/bomb.png");
     background-size: contain;
 }
+
+#popup{
+    background-color: white;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%,-50%);
+}

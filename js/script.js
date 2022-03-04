@@ -6,6 +6,7 @@ let cellNumber = [49,81,100];
 let bombs;
 let bombsAround;
 let cells;
+let popup = document.getElementById("popup"); 
 
 function generateGrid(n){
     for(let y = 0; y <= Math.sqrt(cellNumber[difficultyElem.value] - 1); y++){
@@ -19,12 +20,11 @@ function generateGrid(n){
         }
     }
     cells = document.getElementsByClassName("cell");
-
 }
 
 function generateBombs(){
     bombs = [];
-    while(bombs.length < 2){
+    while(bombs.length < 0){
         let randX = Math.floor(Math.random() * Math.sqrt(cellNumber[difficultyElem.value]));
         let randY =  Math.floor(Math.random() * Math.sqrt(cellNumber[difficultyElem.value]));
         if(!isBomb(randX,randY)) bombs.push([randX, randY]);
@@ -37,7 +37,8 @@ function checkAround(){
         if(isBomb(this.dataset.x, this.dataset.y)){
             this.classList.add("bomb");
             gameDisable();
-            console.log("hai perso!");
+            popup.innerHTML = "Mi dispiace, Hai perso.";
+            popup.style.display = "block";
         }else{
             this.classList.add("clicked");
             bombsAround = 0;
@@ -48,8 +49,9 @@ function checkAround(){
             }
             this.innerHTML = bombsAround;
             if(matchEnded()){
-                console.log("Hai vinto!");
-                gameDisable();   
+                popup.style.display = "block";
+                popup.innerHTML = "Complimenti, Hai vinto.";
+                gameDisable();
             }
         }
         
@@ -82,6 +84,7 @@ function gameDisable(){
 
 playBtn.addEventListener("click",function(){
     field.innerHTML = "";
+    popup.style.display = "none";
     field.classList.add("field-borders");
     text.style.display = "none";
     field.dataset.diff = difficultyElem.value;
