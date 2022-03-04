@@ -47,7 +47,7 @@ function generateBombs(){
     console.log(bombs);
 }
 
-// Controllo se la casella cliccata è una bomba o no
+// Controllo se la casella cliccata è una bomba
 function checkAround(){
         console.log("click: " + this.dataset.x + ", " + this.dataset.y);
         if(isBomb(this.dataset.x, this.dataset.y)){
@@ -58,11 +58,13 @@ function checkAround(){
             popup.innerHTML = "Mi dispiace, Hai perso. </br> Punteggio: " + userScore;
             popup.style.display = "block"; 
         }else{
-            // Se non è una bomba aggiungo la classe clicked, aggiungo 1 al punteggio
+            // Se non è una bomba aggiungo la classe clicked, aggiungo 1 al punteggio (solo se non è già stata clickata)
             // corrente, conto le bombe che si trovano nelle celle circostanti e controllo 
             // che il match non sia ancora terminato.
+            if(!this.classList.contains("clicked")){
+                userScore += 1;
+            }
             this.classList.add("clicked");
-            userScore += 1;
             bombsAround = 0;
             for(let y = parseInt(this.dataset.y) - 1; y <= parseInt(this.dataset.y) + 1; y++ ){
                 for(let x = parseInt(this.dataset.x) - 1; x <= parseInt(this.dataset.x) + 1; x++){
